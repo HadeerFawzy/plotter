@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { lightTheme, darkTheme } from "config/theme";
 
-function App() {
+const App = () => {
+  const [themeToggle, ] = useState("light");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider
+      theme={
+        themeToggle === "dark"
+          ? createMuiTheme(darkTheme)
+          : createMuiTheme(lightTheme)
+      }
+    >
+      test test test 
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
