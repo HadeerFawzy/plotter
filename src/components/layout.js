@@ -7,7 +7,7 @@ import {
   IconButton,
   Box,
 } from "@material-ui/core";
-import TimelineIcon from "@material-ui/icons/Timeline";
+import TimelineIcon from '@material-ui/icons/Timeline';
 import IncortaLogo from "assets/incortaLogo";
 
 const useStyles = makeStyles((theme) => ({
@@ -21,7 +21,8 @@ const useStyles = makeStyles((theme) => ({
   titleBox: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexGrow: 1,
   }
 }));
 

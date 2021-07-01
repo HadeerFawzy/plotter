@@ -27,7 +27,11 @@ const theme = createMuiTheme({
     },
     warning: {
       main: "#FFAB2B"
-    }
+    },
+    text: {
+      primary: '#21324d',
+      secondary: '#cdd5d7',
+    },
   },
   typography: {
     fontFamily: "'Rubik', sans-serif",
