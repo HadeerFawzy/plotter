@@ -1,19 +1,13 @@
-import React, { useState } from "react";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
-import { lightTheme, darkTheme } from "config/theme";
+import React from "react";
+import { ThemeProvider } from "@material-ui/core";
+import theme from "config/theme";
+import Plotter from 'pages/plotter'
 
 const App = () => {
-  const [themeToggle, ] = useState("light");
 
   return (
-    <ThemeProvider
-      theme={
-        themeToggle === "dark"
-          ? createMuiTheme(darkTheme)
-          : createMuiTheme(lightTheme)
-      }
-    >
-      test test test 
+    <ThemeProvider theme={theme}>
+      <Plotter/> 
     </ThemeProvider>
   );
 };

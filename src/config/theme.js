@@ -1,5 +1,6 @@
+import { createMuiTheme } from '@material-ui/core/styles';
 
-const theme = {
+const theme = createMuiTheme({
   breakpoints: {
     values: {
       xs: 0,
@@ -12,9 +13,10 @@ const theme = {
   },
   palette: {
     primary: {
-      light: "#df6d71",
-      main: "#d71921",
-      dark: "#b4030b",
+      main: "#21324d",
+    },
+    secondary: {
+      main: '#cdd5d7'
     },
     success: {
       main: "#6DD230",
@@ -45,36 +47,6 @@ const theme = {
     }
   },
   spacing: (factor) => `${0.5 * factor}rem`,
-};
+});
 
-const lightTheme = {
-  ...theme,
-  palette: {
-    ...theme.palette,
-    type: 'light',
-    secondary: {
-      main: "#494646",
-    },
-    text: {
-      primary: '#424242',
-      secondary: '#424242',
-    },
-  },
-};
-
-const darkTheme = {
-  ...theme,
-  palette: {
-    ...theme.palette,
-    type: 'dark',
-    secondary: {
-      main: "#f9f9f9",
-    },
-    text: {
-      primary: '#fff',
-      secondary: '#fff',
-    },
-  },
-};
-
-export { theme, lightTheme, darkTheme };
+export default theme;
