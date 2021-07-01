@@ -1,37 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { makeStyles, Box, Typography, Divider } from '@material-ui/core';
-import { Skeleton } from '@material-ui/lab';
-import useSendRequest from 'hooks/useSendRequest'
+import { makeStyles, Box, Typography, Divider } from "@material-ui/core";
+import { Skeleton } from "@material-ui/lab";
+import useSendRequest from "hooks/useSendRequest";
 import theme from "config/theme";
-import ColumnsGroup from 'components/plotter/columns-group'
+import ColumnsGroup from "components/plotter/columns-group";
 
 const useStyles = makeStyles(() => ({
   componentBox: {},
   title: {
     color: theme.palette.text.primary,
-    textAlign: 'center',
-    fontWeight: '500'
+    textAlign: "center",
+    fontWeight: "500",
   },
   divider: {
-    margin: theme.spacing(2, -2)
-  }
+    margin: theme.spacing(2, -2),
+  },
 }));
 
-const Sidebar = () => {
+const Sidebar = ({ setDroppedCol }) => {
   const classes = useStyles();
   const [, setLoading] = useState(false);
 
   const fetchColumns = useSendRequest({
-    reqType: 'get', 
-    url: 'https://plotter-task.herokuapp.com/columns',
+    reqType: "get",
+    url: "https://plotter-task.herokuapp.com/columns",
     setLoading: setLoading,
-  })
+  });
 
-  const columns = fetchColumns.response || null
-  
+  const columns = fetchColumns.response || null;
+
   const getColumnsByFunction = (columns, functionName) => {
-    return columns.filter((column) => column.function == functionName)
-  }
+    return columns.filter((column) => column.function == functionName);
+  };
 
   useEffect(() => {
     fetchColumns.sendRequest();
@@ -39,25 +39,31 @@ const Sidebar = () => {
 
   return (
     <Box className={classes.componentBox}>
-      <Typography variant='h5' className={classes.title}>
+      <Typography variant="h5" className={classes.title}>
         Columns
-      </Typography> 
-      <Divider className={classes.divider}/>
-      {columns ? 
+      </Typography>
+      <Divider className={classes.divider} />
+      {columns ? (
         <>
-            <ColumnsGroup columns={getColumnsByFunction(columns, 'measure')}
-                          title='Measure'/>
-            <ColumnsGroup columns={getColumnsByFunction(columns, 'dimension')}
-                          title='Dimension'/>
+          <ColumnsGroup
+            columns={getColumnsByFunction(columns, "dimension")}
+            title="Dimension"
+            setDroppedCol={setDroppedCol}
+          />
+          <ColumnsGroup
+            columns={getColumnsByFunction(columns, "measure")}
+            title="Measure"
+            setDroppedCol={setDroppedCol}
+          />
         </>
-        : 
+      ) : (
         <>
           <Skeleton animation="wave" />
           <Skeleton animation="wave" />
         </>
-      }
+      )}
     </Box>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
