@@ -24,7 +24,7 @@ const Plotter = () => {
           <Sidebar/>
         </Grid>
         <Divider orientation="vertical" flexItem />
-        <Grid item mg={9} className={classes.gridItem}>
+        <Grid item md={9} className={classes.gridItem}>
           <Content/> 
         </Grid>
       </Grid>
