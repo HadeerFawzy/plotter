@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 function selectBackgroundColor(isActive, canDrop) {
   if (isActive) {
-    return theme.palette.primary.main;
+    return '#48a39a';
   } else if (canDrop) {
     return theme.palette.secondary.main;
   } else {
@@ -54,7 +54,6 @@ const FunctionBox = ({ type, allowedDropEffect, placeholder, droppedCol, setDrop
         name: `${allowedDropEffect}`,
         allowedDropEffect,
       }),
-      onDrop: () => ({}),
       collect: (monitor) => ({
         isOver: monitor.isOver(),
         canDrop: monitor.canDrop(),

@@ -1,6 +1,7 @@
-import React from "react";
-import { makeStyles, Box } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { makeStyles, Box, Fade } from "@material-ui/core";
 import FunctionBox from "components/plotter/function-box";
+import Chart from "components/plotter/chart";
 
 const useStyles = makeStyles(() => ({
   componentBox: {},
@@ -14,6 +15,16 @@ const useStyles = makeStyles(() => ({
 
 const Content = ({ droppedCols, setDroppedCol }) => {
   const classes = useStyles();
+
+  const [showChart, setShowChart] = useState(false);
+
+  useEffect(() => {
+    if (droppedCols.measure && droppedCols.dimension) {
+      setShowChart(true);
+    } else {
+      setShowChart(false);
+    }
+  }, [droppedCols]);
 
   return (
     <Box className={classes.componentBox}>
@@ -33,7 +44,9 @@ const Content = ({ droppedCols, setDroppedCol }) => {
           setDroppedCol={setDroppedCol}
         />
       </Box>
-      Charts goes here
+      <Fade in={showChart}>
+        <Box>{showChart && <Chart droppedCols={droppedCols} />}</Box>
+      </Fade>
     </Box>
   );
 };

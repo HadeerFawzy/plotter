@@ -7,7 +7,8 @@ const useSendRequest = (props) => {
     reqType,
     url,
     params = {},
-    setLoading
+    setLoading,
+    overwriteSuccess
   } = props;
 
   let requestFunction = null;
@@ -34,9 +35,13 @@ const useSendRequest = (props) => {
         requestFunction = axios.get;
         break;
     }
-    requestFunction(url, params)
+    requestFunction(url, { ...params })
       .then((res) => {
-      setLoading(false);
+        setLoading(false);
+        if (overwriteSuccess) {
+          overwriteSuccess(res);
+          return;
+        }
         setResponse(res.data);
       })
       .catch((err) => {

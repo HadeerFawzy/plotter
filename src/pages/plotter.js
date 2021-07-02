@@ -34,7 +34,6 @@ const Plotter = () => {
         ...droppedCols,
       });
     }
-    console.log("after", droppedCols)
   };
 
   return (
