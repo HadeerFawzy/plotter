@@ -30,10 +30,10 @@ const Layout = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-test="layoutComponent">
       <AppBar position="static">
         <Toolbar>
-          <IncortaLogo className={classes.logo} />
+          <IncortaLogo className={classes.logo} data-test="incortaLogo"/>
           <Box className={classes.titleBox}>
             <IconButton
               edge="start"

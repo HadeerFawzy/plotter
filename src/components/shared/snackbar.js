@@ -28,7 +28,7 @@ const Snackbar = (props) => {
     open,
     onClose,
     severity = 'success',
-    duration = 8000,
+    duration,
   } = props;
 
   const handleClose = (event, reason) => {
