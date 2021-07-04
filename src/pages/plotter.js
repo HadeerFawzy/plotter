@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Layout from "components/layout";
 import Sidebar from "components/plotter/sidebar";
 import Content from "components/plotter/content";
 import { makeStyles, Grid, Divider } from "@material-ui/core";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import LayoutProvider from "components/shared/layout-provider";
 
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
@@ -38,18 +38,22 @@ const Plotter = () => {
 
   return (
     <>
-      <Layout />
-      <DndProvider backend={HTML5Backend}>
-        <Grid container className={classes.gridContainer}>
-          <Grid item md={2} className={classes.gridItem}>
-            <Sidebar setDroppedCol={setDroppedCol} />
+      <LayoutProvider>
+        <DndProvider backend={HTML5Backend}>
+          <Grid container className={classes.gridContainer}>
+            <Grid item md={2} className={classes.gridItem}>
+              <Sidebar setDroppedCol={setDroppedCol} />
+            </Grid>
+            <Divider orientation="vertical" flexItem />
+            <Grid item md={9} className={classes.gridItem}>
+              <Content
+                droppedCols={droppedCols}
+                setDroppedCol={setDroppedCol}
+              />
+            </Grid>
           </Grid>
-          <Divider orientation="vertical" flexItem />
-          <Grid item md={9} className={classes.gridItem}>
-            <Content droppedCols={droppedCols} setDroppedCol={setDroppedCol} />
-          </Grid>
-        </Grid>
-      </DndProvider>
+        </DndProvider>
+      </LayoutProvider>
     </>
   );
 };

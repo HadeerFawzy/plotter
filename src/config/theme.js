@@ -19,7 +19,7 @@ const theme = createMuiTheme({
       main: '#cdd5d7'
     },
     success: {
-      main: "#6DD230",
+      main: "#2e822c",
       dark: "#5CAD2C",
     },
     error: {

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { makeStyles, Box, Snackbar } from "@material-ui/core";
-import MuiAlert from '@material-ui/lab/Alert';
+import React from "react";
+import { makeStyles, Box } from "@material-ui/core";
 import { useDrag } from "react-dnd";
+import { useLayoutSnackbar } from 'components/shared/layout-provider';
 
 const useStyles = makeStyles((theme) => ({
   column: {
@@ -17,8 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ColumnItem = ({ column, setDroppedCol }) => {
   const classes = useStyles();
-  const [openAlertMessage, setOpenAlertMessage] = useState(null)
-  const [alertMessage, setAlertMessage] = useState(null)
+  const {snackbar, setSnackbar} = useLayoutSnackbar();
 
   const [{ opacity }, drag] = useDrag(
     () => ({
@@ -31,12 +30,22 @@ const ColumnItem = ({ column, setDroppedCol }) => {
             dropResult.allowedDropEffect === column.function
 
           if (isDropAllowed) {
-            setOpenAlertMessage(false);
             setDroppedCol(column)
-            
+            setSnackbar({
+              ...snackbar,
+              open: true,
+              severity: 'success',
+              duration: 3000,
+              message: `You dropped ${column.name} into the ${dropResult.name}`
+            });
           } else {
-            setOpenAlertMessage(true)
-            setAlertMessage(`You cannot ${dropResult.dropEffect} ${column.name} into the ${dropResult.name}`)
+            setSnackbar({
+              ...snackbar,
+              open: true,
+              severity: 'error',
+              duration: 3000,
+              message: `You cannot ${dropResult.dropEffect} ${column.name} into the ${dropResult.name}`
+            });
           }
         }
       },
@@ -50,12 +59,6 @@ const ColumnItem = ({ column, setDroppedCol }) => {
 
   return (
     <>
-      <Snackbar open={openAlertMessage} autoHideDuration={6000} 
-      anchorOrigin={{ vertical: 'top', horizontal: 'center' }} onClose={() => setOpenAlertMessage(false)}>
-        <MuiAlert elevation={6} variant="filled" onClose={() => setOpenAlertMessage(false)} severity="error">
-          {alertMessage}
-        </MuiAlert>
-      </Snackbar>
       <Box className={classes.column} ref={drag} style={{ opacity }} >
         {column.name}
       </Box>

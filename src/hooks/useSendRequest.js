@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import useHandleErrors from 'hooks/useHandleErrors'
 
 const useSendRequest = (props) => {
   // params
@@ -13,11 +14,13 @@ const useSendRequest = (props) => {
 
   let requestFunction = null;
 
+  const { handleErrors } = useHandleErrors()
+
   // state
   const [response, setResponse] = useState();
 
   const sendRequest = () => {
-      setLoading(true);
+    setLoading(true);
     switch (reqType) {
       case 'POST': 
         requestFunction = axios.post;
@@ -45,8 +48,8 @@ const useSendRequest = (props) => {
         setResponse(res.data);
       })
       .catch((err) => {
-      setLoading(false);
-      console.log(err)
+        setLoading(false);
+        handleErrors(err)
         // show snack bar with the error
       });
   };

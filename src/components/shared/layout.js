@@ -7,7 +7,7 @@ import {
   IconButton,
   Box,
 } from "@material-ui/core";
-import TimelineIcon from '@material-ui/icons/Timeline';
+import TimelineIcon from "@material-ui/icons/Timeline";
 import IncortaLogo from "assets/incortaLogo";
 
 const useStyles = makeStyles((theme) => ({
@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(11.875),
   },
   titleBox: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     flexGrow: 1,
-  }
+  },
 }));
 
 const Layout = () => {
@@ -43,9 +43,7 @@ const Layout = () => {
             >
               <TimelineIcon />
             </IconButton>
-            <Typography variant="h6">
-              Plotter
-            </Typography>
+            <Typography variant="h6">Plotter</Typography>
           </Box>
         </Toolbar>
       </AppBar>
@@ -54,3 +52,4 @@ const Layout = () => {
 };
 
 export default Layout;
+

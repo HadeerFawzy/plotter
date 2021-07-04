@@ -13,13 +13,17 @@ import {
   Label
 } from "recharts";
 import theme from "config/theme";
+import ChartLoader from "assets/chart-loader.gif";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   componentBox: {
     display: "flex",
     justifyContent: "center",
     marginTop: theme.spacing(2),
   },
+  chartLoader: {
+    height: theme.spacing(37.5)
+  }
 }));
 
 const Chart = ({ droppedCols }) => {
@@ -50,7 +54,6 @@ const Chart = ({ droppedCols }) => {
       chartArray.push(obj);
       obj = {};
     });
-    console.log("chartArray", chartArray);
     return chartArray;
   };
 
@@ -60,6 +63,9 @@ const Chart = ({ droppedCols }) => {
 
   return (
     <Box className={classes.componentBox}>
+      {!data && 
+        <img src={ChartLoader} className={classes.chartLoader}/>
+      }
       {data && (
         <ScatterChart
           width={800}
