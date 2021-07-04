@@ -2,6 +2,7 @@ import React from "react";
 import { makeStyles, Box } from "@material-ui/core";
 import { useDrag } from "react-dnd";
 import { useLayoutSnackbar } from 'components/shared/layout-provider';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   column: {
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ColumnItem = ({ column, setDroppedCol }) => {
   const classes = useStyles();
+  
   const {snackbar, setSnackbar} = useLayoutSnackbar();
 
   const [{ opacity }, drag] = useDrag(
@@ -56,14 +58,20 @@ const ColumnItem = ({ column, setDroppedCol }) => {
     [column]
   );
 
+  if(!column) {
+    return null
+  }
 
   return (
-    <>
-      <Box className={classes.column} ref={drag} style={{ opacity }} >
+      <Box data-test="columnItem" className={classes.column} ref={drag} style={{ opacity }}>
         {column.name}
       </Box>
-    </>
   );
 };
+
+ColumnItem.propTypes = {
+  column: PropTypes.object,
+  setDroppedCol: PropTypes.func,
+}
 
 export default ColumnItem;

@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles, Box, Typography } from "@material-ui/core";
 import ColumnItem from "components/plotter/column-item";
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme) => ({
   componentBox: {},
@@ -34,5 +35,14 @@ const ColumnsGroup = ({ columns, title, setDroppedCol }) => {
     </Box>
   );
 };
+
+ColumnsGroup.propTypes = {
+  columns: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    function: PropTypes.string,
+  })),
+  title: PropTypes.string,
+  setDroppedCol: PropTypes.func,
+}
 
 export default ColumnsGroup;
