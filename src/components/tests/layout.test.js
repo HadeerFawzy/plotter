@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { findByTestAtrr } from 'utils/findByTestAttr';
+import { findByTestAtrr } from 'utils/test-helper-functions';
 import Layout from 'components/shared/layout';
 
 const setUp = (props={}) => {

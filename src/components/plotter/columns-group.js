@@ -15,10 +15,14 @@ const useStyles = makeStyles((theme) => ({
 const ColumnsGroup = ({ columns, title, setDroppedCol }) => {
   const classes = useStyles();
 
+  if(!columns) {
+    return null
+  }
+  
   return (
-    <Box className={classes.componentBox}>
-      <Typography className={classes.columnsTitle}>{title}:</Typography>
-      <Box>
+    <Box className={classes.componentBox} data-test="columnsGroup">
+      <Typography className={classes.columnsTitle} data-test="columnTypography">{title}:</Typography>
+      <Box data-test="columnsBox">
         {columns.map((column) => (
           <ColumnItem
             column={column}
