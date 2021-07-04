@@ -35,7 +35,7 @@ const ColumnItem = ({ column, setDroppedCol }) => {
               ...snackbar,
               open: true,
               severity: 'success',
-              duration: 1000,
+              duration: 500,
               message: `You dropped ${column.name} into the ${dropResult.name}`
             });
           } else {
@@ -43,7 +43,7 @@ const ColumnItem = ({ column, setDroppedCol }) => {
               ...snackbar,
               open: true,
               severity: 'error',
-              duration: 1000,
+              duration: 500,
               message: `You cannot ${dropResult.dropEffect} ${column.name} into the ${dropResult.name}`
             });
           }
