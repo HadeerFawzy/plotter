@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { findByTestAtrr } from 'utils/findByTestAttr';
-import Layout from './index';
+import Layout from 'components/shared/layout';
 
 const setUp = (props={}) => {
     const component = shallow(<Layout {...props} />);
