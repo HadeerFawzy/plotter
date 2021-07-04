@@ -7,19 +7,30 @@ const useStyles = makeStyles((theme) => ({
   componentBox: {
     margin: theme.spacing(2, 0),
     display: "flex",
-    alignItems: "center",
+    alignItems: "left",
+    flexDirection: 'column',
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row',
+      alignItems: "center",
+    },
   },
   typeText: {
     width: theme.spacing(10),
     color: theme.palette.text.primary,
+    marginBottom: theme.spacing(1),
+    [theme.breakpoints.up('md')]: {
+      marginBottom: theme.spacing(0),
+    },
   },
   dropAreaContainer: {
     display: "flex",
     alignItems: "center",
     border: "1px solid",
-    margin: theme.spacing(0, 2),
     borderRadius: "2px",
     height: theme.spacing(5),
+    [theme.breakpoints.up('md')]: {
+      margin: theme.spacing(0, 2),
+    },
   },
   dropArea: {
     padding: theme.spacing(0, 2),
@@ -27,7 +38,13 @@ const useStyles = makeStyles((theme) => ({
     height: "100%",
     display: "flex",
     alignItems: "center",
-    minWidth: theme.spacing(40),
+    minWidth: theme.spacing(20),
+    [theme.breakpoints.up('md')]: {
+      minWidth: theme.spacing(35),
+    },
+    [theme.breakpoints.up('lg')]: {
+      minWidth: theme.spacing(40),
+    },
   },
   clearBtn: {
     height: "100%",

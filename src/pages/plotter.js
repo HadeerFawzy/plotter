@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Plotter = () => {
   const classes = useStyles();
+
   const [droppedCols, setDroppedCols] = useState({
     measure: null,
     dimension: null,
@@ -41,11 +42,11 @@ const Plotter = () => {
       <LayoutProvider>
         <DndProvider backend={HTML5Backend}>
           <Grid container className={classes.gridContainer}>
-            <Grid item md={2} className={classes.gridItem}>
+            <Grid item sm={12} md={3} lg={2} className={classes.gridItem}>
               <Sidebar setDroppedCol={setDroppedCol} />
             </Grid>
             <Divider orientation="vertical" flexItem />
-            <Grid item md={9} className={classes.gridItem}>
+            <Grid item sm={12} md={8} lg={9} className={classes.gridItem}>
               <Content
                 droppedCols={droppedCols}
                 setDroppedCol={setDroppedCol}
