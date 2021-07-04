@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles, Box } from "@material-ui/core";
+import { makeStyles, Box, useMediaQuery } from "@material-ui/core";
 import useSendRequest from "hooks/useSendRequest";
 import {
   ScatterChart,
@@ -28,6 +28,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Chart = ({ droppedCols }) => {
   const classes = useStyles();
+  const smallScreen = useMediaQuery(theme.breakpoints.only('sm'));
+  const mediumScreen = useMediaQuery(theme.breakpoints.only('md'));
 
   const [, setLoading] = useState(false);
   const [data, setData] = useState(null);
@@ -68,7 +70,7 @@ const Chart = ({ droppedCols }) => {
       }
       {data && (
         <ScatterChart
-          width={800}
+          width={(smallScreen ? 300 : (mediumScreen ? 500 : 800))}
           height={400}
           margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
         >
