@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/plotter/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/plotter/static/js/main.2a1102dc.chunk.js",
-    "main.js.map": "/plotter/static/js/main.2a1102dc.chunk.js.map",
-    "runtime-main.js": "/plotter/static/js/runtime-main.f360a667.js",
-    "runtime-main.js.map": "/plotter/static/js/runtime-main.f360a667.js.map",
-    "static/js/2.572546f4.chunk.js": "/plotter/static/js/2.572546f4.chunk.js",
-    "static/js/2.572546f4.chunk.js.map": "/plotter/static/js/2.572546f4.chunk.js.map",
-    "static/js/3.5e79d797.chunk.js": "/plotter/static/js/3.5e79d797.chunk.js",
-    "static/js/3.5e79d797.chunk.js.map": "/plotter/static/js/3.5e79d797.chunk.js.map",
+    "main.js": "/plotter/static/js/main.a22413ee.chunk.js",
+    "main.js.map": "/plotter/static/js/main.a22413ee.chunk.js.map",
+    "runtime-main.js": "/plotter/static/js/runtime-main.4be4d392.js",
+    "runtime-main.js.map": "/plotter/static/js/runtime-main.4be4d392.js.map",
+    "static/js/2.8a64a489.chunk.js": "/plotter/static/js/2.8a64a489.chunk.js",
+    "static/js/2.8a64a489.chunk.js.map": "/plotter/static/js/2.8a64a489.chunk.js.map",
+    "static/js/3.df30b574.chunk.js": "/plotter/static/js/3.df30b574.chunk.js",
+    "static/js/3.df30b574.chunk.js.map": "/plotter/static/js/3.df30b574.chunk.js.map",
     "index.html": "/plotter/index.html",
     "static/css/main.6dea0f05.chunk.css.map": "/plotter/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.572546f4.chunk.js.LICENSE.txt": "/plotter/static/js/2.572546f4.chunk.js.LICENSE.txt"
+    "static/js/2.8a64a489.chunk.js.LICENSE.txt": "/plotter/static/js/2.8a64a489.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f360a667.js",
-    "static/js/2.572546f4.chunk.js",
+    "static/js/runtime-main.4be4d392.js",
+    "static/js/2.8a64a489.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.2a1102dc.chunk.js"
+    "static/js/main.a22413ee.chunk.js"
   ]
 }
