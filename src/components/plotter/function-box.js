@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 
 function selectBackgroundColor(isActive, canDrop) {
   if (isActive) {
-    return '#48a39a';
+    return '#2e822c';
   } else if (canDrop) {
     return theme.palette.secondary.main;
   } else {
